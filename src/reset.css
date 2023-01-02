@@ -170,14 +170,15 @@ align-items: center;
 .logo-title {
   font-size: 20px;
 }
-.card {
-  width: 100px;
-  height: 100px;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; 
+gap: 30px;
+margin: 200px;
 }
-.card-image {
-  max-width: 100%;
-  max-height: 100%;
-}
+
 .social-links {
   display: flex;
   width: 100%;
@@ -189,7 +190,7 @@ align-items: center;
   margin-left: 2rem;
 }
 .footer {
-  position: fixed;
+
   bottom: 1rem;
   width: 100%;
   margin: 1rem auto;
@@ -201,4 +202,91 @@ align-items: center;
   padding: 1rem;
   color: rgba(0, 0, 0, 0.5);
   font-weight: bolder;
+}
+
+.card {
+  display: inline-block;
+  width: 240px;
+  text-align: center;
+}
+
+.img-container {
+    height: 230px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 0px 0px 20px 20px;
+    display: inline-block;
+}
+
+.img-container img {
+    transform: skew(0deg, -13deg);
+    height: 250px;
+    margin: -35px 0px 0px -70px;
+}
+
+.img {
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0px;
+    transform: skew(0deg, 13deg);
+    font-size: 0px;
+    margin: 30px 0px 0px 0px;
+    background: #c8c2c2;
+    height: 250px;
+    width: 200px;
+}
+
+.img-container img {
+  transition: transform .5s ease;
+}
+
+.img-container img:hover {
+
+  transform: scale(0.8);
+}
+
+.title-container {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  padding: 120px 20px 20px 20px;
+  border-radius: 20px;
+  background: #fff;
+  margin: -120px 0px 0px 0px;
+  line-height: 19px;
+  font-size: 14px;
+}
+
+.title-container h3 {
+  margin: 20px 0px 10px 0px;
+  color: #04bcff;
+  font-size: 18px;
+}
+
+.fa-heart:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-comment:hover {
+  color: rgb(0, 89, 232);
+  cursor: pointer;
+}
+
+.comment {
+  padding: 10px;
+  margin :20px;
+  background-color: #04bcff;
+  border: 0;
+  border-radius: 5%;
+  font-size: 15px;
+  color: #fff;
+}
+
+.interactions {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap :10px;
 }
