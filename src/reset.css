@@ -151,6 +151,8 @@ body {
 }
 .nav-items {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .nav-items li {
   list-style: none;
@@ -159,13 +161,15 @@ body {
 
 .logo {
   border-radius: 50%;
-  border: 1px solid black;
-  padding: 3rem;
-}
-.nav-link {
-  padding-top: 3rem;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
 }
 
+.logo-title {
+  font-size: 20px;
+}
 .card {
   width: 100px;
   height: 100px;
@@ -182,8 +186,6 @@ body {
 }
 .icon {
   border-radius: 50%;
-  border: 1px solid rgba(129, 129, 129, 0.897);
-  padding: 1rem;
   margin-left: 2rem;
 }
 .footer {
