@@ -1,2 +1,5 @@
 import './reset.css';
-import './modules/Functions.js';
+import Api from './modules/Api.js';
+
+const test = new Api();
+test.GetMeals();

@@ -1,7 +1,6 @@
-import Api from "./Api";
-import { Cards } from "./Dom";
+import Cards from './Dom.js';
 
-export function DisplayCards(data) {
+function DisplayCards(data) {
   data.forEach((element) => {
     Cards.innerHTML += `
         <div class="card">
@@ -29,5 +28,4 @@ export function DisplayCards(data) {
   });
 }
 
-let test = new Api();
-test.GetMeals();
+export default DisplayCards();
