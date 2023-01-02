@@ -1,5 +1,4 @@
 const modal = document.querySelector(".popup-container");
-const comment = document.querySelector(".comment");
-const closeBtn = document.querySelector(".close-window");
+const comment = document.querySelectorAll(".comment");
 
-export { modal, comment, closeBtn };
+export { modal, comment };

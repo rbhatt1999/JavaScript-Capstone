@@ -23,8 +23,6 @@ export default class Api {
   GetExamples = async (item, id) => {
     await fetch(`${this.FreeMealEP}/1/filter.php?c=${item.strCategory}`)
       .then((response) => response.json())
-      .then((json) => {
-        DisplayPopup(item, id, json);
-      });
+      .then((json) => DisplayPopup(item, id, json));
   };
 }

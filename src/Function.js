@@ -1,37 +1,73 @@
 import { modal } from "./Dom.js";
 
-function viewMeal(data) {
-  modal.innerHTML = `
-    <div class="popup-content">
-        <div class ="popup-image">
-            <span class ="popup-food">
-                <img src="${data.strCategoryThumb}" alt="Pizza">
-            </span>
-            <span class="close-window">&times;</span>
-        </div>
-        <div class="meal-title">
-            <h2>${data.strCategory}</h2> 
-        </div>
-        <div class="description">
-            <p>${data.strCategoryDescription}</p>
-        </div>
-        <div class="comment-section">
-            <h2 class="comment-title">Comments()</h2>
-            <div class="display-comments">
-                <ul>
-                    <li>REally nice</li>
-                    <li>Very yummy</li>
-                </ul>
+function DisplayPopup(data, examples) {
+  modal.innerHTML = ` <div class="closeBtn">X</div>
+  <div class="popup">
+            <div class="popup-header" >
+                
+                    <div class="img-popcontainer">
+                        <div class="img-pophold">
+                            <div class="img">
+                                <img src="${data.strCategoryThumb}">
+                            </div>
+                        </div>
+                    </div>
+                <div class="popup-title">${data.strCategory}</div>
+            </div>
+
+            <div class="popup-details">
+              
+                <div class="details">
+                    <div class="images">
+                    </div>
+                    <hr />
+                   <div class="details-text">
+                   ${data.strCategoryDescription}
+                    </div>
+                </div>
+                <div class="popup-comments">
+                    <div class="container-comments">
+                        <form >
+                    
+                    <textarea id="comment" type="text" placeholder="Comment"/></textarea>
+                    <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit">submit</button></div>
+                        </form>
+                     <hr/>
+                    <div class="comment-list">
+                        <ul class="comments">
+                           <li class="single-comment">
+                               <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
+                               <b class="user-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur architecto quidem molestiae deserunt vero voluptas odit asperiores nemo laborum cum laudantium eaque voluptate esse nobis voluptatem iusto, est maxime!</b>
+                           </li>             
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="add-comments">
-            <h2 class="add-comm">Add a comment</h2>
-            <form class="form">
-                <input type="text" class="name" value="Your name">
-                <input type="text" class="insights" value="Your insights">
-                <button type="submit" class="submit"> Comment</button>
-            </form>
-        </div>    
-    </div>`;
+   
+   
+   </div>`;
+  const images = document.querySelector(".images");
+
+  examples.meals.slice(0, 3).forEach((element) => {
+    const div = document.createElement("div");
+    div.classList.add("single-product-example");
+    div.innerHTML = ` 
+    <div class="img-popholdpop">
+        <div class="imgex">
+            <img src=${element.strMealThumb}>
+        </div>
+    </div>
+    <p class="title-example">${element.strMeal.substr(0, 15)}</p>
+`;
+    images.appendChild(div);
+  });
+
+  const closeBtn = document.querySelector(".closeBtn");
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.toggle("hide");
+  });
 }
-export default viewMeal;
+
+export default DisplayPopup;
