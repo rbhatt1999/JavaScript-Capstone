@@ -1,11 +1,10 @@
-import DisplayPopup from "./Functions.js";
+import { DisplayPopup, DisplayCards } from './Functions.js';
 
 export default class Api {
   constructor() {
-    this.InvolvementApiEP =
-      "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/";
-    this.InvolvementAppID = "YrrcGavt9pgNOYlenrro";
-    this.FreeMealEP = "https://www.themealdb.com/api/json/v1/";
+    this.InvolvementApiEP = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
+    this.InvolvementAppID = 'YrrcGavt9pgNOYlenrro';
+    this.FreeMealEP = 'https://www.themealdb.com/api/json/v1/';
   }
 
   GetMealInfos = async (id) => {
@@ -24,5 +23,13 @@ export default class Api {
     await fetch(`${this.FreeMealEP}/1/filter.php?c=${item.strCategory}`)
       .then((response) => response.json())
       .then((json) => DisplayPopup(item, id, json));
+  };
+
+  GetMeals = async () => {
+    await fetch(`${this.FreeMealEP}/1/categories.php`)
+      .then((response) => response.json())
+      .then((json) => {
+        DisplayCards(json.categories);
+      });
   };
 }

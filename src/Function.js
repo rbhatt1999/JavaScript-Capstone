@@ -1,4 +1,4 @@
-import { modal } from "./Dom.js";
+import { modal, Cards } from './Dom.js';
 
 function DisplayPopup(data, examples) {
   modal.innerHTML = ` <div class="closeBtn">X</div>
@@ -47,11 +47,11 @@ function DisplayPopup(data, examples) {
    
    
    </div>`;
-  const images = document.querySelector(".images");
+  const images = document.querySelector('.images');
 
   examples.meals.slice(0, 3).forEach((element) => {
-    const div = document.createElement("div");
-    div.classList.add("single-product-example");
+    const div = document.createElement('div');
+    div.classList.add('single-product-example');
     div.innerHTML = ` 
     <div class="img-popholdpop">
         <div class="imgex">
@@ -63,11 +63,39 @@ function DisplayPopup(data, examples) {
     images.appendChild(div);
   });
 
-  const closeBtn = document.querySelector(".closeBtn");
+  const closeBtn = document.querySelector('.closeBtn');
 
-  closeBtn.addEventListener("click", () => {
-    modal.classList.toggle("hide");
+  closeBtn.addEventListener('click', () => {
+    modal.classList.toggle('hide');
   });
 }
 
-export default DisplayPopup;
+function DisplayCards(data) {
+  data.forEach((element) => {
+    Cards.innerHTML += `
+        <div class="card">
+        <div class="img-container">
+            <div class="img-hold">
+                <div class="img">
+                    <img src="${element.strCategoryThumb}">
+                </div>
+            </div>
+        </div>
+        <div class="title-container">
+            <h3>${element.strCategory}</h3>
+            <div class="interactions">
+            <div><i class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> 355 </div>
+            </div>
+            <div>
+            ${element.strCategoryDescription.substr(0, 50)}...
+            </div>
+            
+        <button class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
+        </div>
+
+    </div>
+        `;
+  });
+}
+
+export { DisplayPopup, DisplayCards };

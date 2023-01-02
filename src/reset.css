@@ -221,6 +221,15 @@ body {
   font-weight: bolder;
 }
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 200px;
+}
+
 .social-links {
   display: flex;
   width: 100%;
@@ -232,7 +241,6 @@ body {
   margin-left: 2rem;
 }
 .footer {
-  position: fixed;
   bottom: 1rem;
   width: 100%;
   margin: 1rem auto;
@@ -245,6 +253,7 @@ body {
   color: rgba(0, 0, 0, 0.5);
   font-weight: bolder;
 }
+
 .popup-container {
   position: fixed;
   height: 100vh;
@@ -372,6 +381,45 @@ b {
 
 .title-container {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.img-container {
+  height: 230px;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 0px 0px 20px 20px;
+  display: inline-block;
+}
+
+.img-container img {
+  transform: skew(0deg, -13deg);
+  height: 250px;
+  margin: -35px 0px 0px -70px;
+}
+
+.img {
+  display: inline-block;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0px;
+  transform: skew(0deg, 13deg);
+  font-size: 0px;
+  margin: 30px 0px 0px 0px;
+  background: #c8c2c2;
+  height: 250px;
+  width: 200px;
+}
+
+.img-container img {
+  transition: transform 0.5s ease;
+}
+
+.img-container img:hover {
+  transform: scale(0.8);
+}
+
+.title-container {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
   padding: 120px 20px 20px 20px;
   border-radius: 20px;
   background: #fff;
@@ -437,6 +485,7 @@ b {
   align-self: flex-end;
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .details-text {
