@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
 *::before,
 *::after {
   margin: 0;
@@ -6,6 +8,12 @@
   -moz-box-sizing: border-box !important;
   -ms-box-sizing: border-box !important;
   box-sizing: border-box !important;
+}
+body {
+  background-color: #f2d2bd;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.2em;
 }
 .nav {
   margin-top: 1.5rem;
