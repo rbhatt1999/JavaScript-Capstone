@@ -1,8 +1,7 @@
 import { modal } from "./Dom.js";
 
-function viewMeal(data) {
-  data.forEach((element) => {
-    modal.innerHTML = `
+function viewMeal() {
+  modal.innerHTML = `
     <div class="popup-content">
         <div class ="popup-image">
             <span class ="popup-food">
@@ -34,6 +33,5 @@ function viewMeal(data) {
             </form>
         </div>    
     </div>`;
-  });
 }
 export default viewMeal;
