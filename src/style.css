@@ -35,8 +35,7 @@ body {
 .nav-link {
   padding-top: 3rem;
 }
-.cards {
-}
+
 .card {
   width: 100px;
   height: 100px;
@@ -66,9 +65,24 @@ body {
   bottom: 1rem;
   width: 100%;
   margin: 1rem auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+}
+.social-links {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.icon {
+  border-radius: 50%;
+  border: 1px solid rgba(129, 129, 129, 0.897);
+  padding: 1rem;
+  margin-left: 2rem;
 }
 .licence {
   text-align: center;
-  border-top: 1px solid black;
   padding: 1rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
 }
