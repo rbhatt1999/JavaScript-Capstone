@@ -186,8 +186,10 @@ body {
 }
 .popup-content {
   background-color: #f4f4f4;
-  margin: 5% auto;
-  padding: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  padding: 1rem;
   max-width: 80%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.17);
 }
