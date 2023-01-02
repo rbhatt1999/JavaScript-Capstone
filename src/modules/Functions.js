@@ -44,18 +44,6 @@ function DisplayPopup(data, examples) {
                 </div>
             </div>
         </div>
-        <div class="title-container">
-            <h3>${data.strCategory}</h3>
-            <div class="interactions">
-            <div><i id="${data.idCategory}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> <b id="${data.idCategory}" class="likes-counter">355</b> </div>
-            </div>
-            <div>
-            ${data.strCategoryDescription.substr(0, 50)}...
-            </div>
-            
-        <button class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
-   
-   
    </div>`;
   const images = document.querySelector('.images');
   examples.meals.slice(0, 3).forEach((element) => {
@@ -89,7 +77,7 @@ function DisplayCards(data) {
                   <div class="img">
                       <img src="${element.strCategoryThumb}">
                   </div>
-              </div>
+              </div>//   const LikesCounter = document.querySelectorAll('.likes-counter');
           </div>
           <div class="title-container">
               <h3>${element.strCategory}</h3>
@@ -109,15 +97,7 @@ function DisplayCards(data) {
 }
 
 function Counter(data) {
-//   const LikesCounter = document.querySelectorAll('.likes-counter');
   ProductsCounter.innerHTML = data.products.length;
-  // data.likes.forEach(item => {
-  //     LikesCounter.forEach(counter=>{
-  //         if(item.item_id === counter.id) {
-  //             counter.innerHTML=item.likes
-  //         }
-  //     })
-  // })
 }
 
 export { DisplayCards, DisplayPopup, Counter };
