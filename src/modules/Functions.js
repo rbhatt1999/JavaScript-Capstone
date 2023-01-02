@@ -28,4 +28,4 @@ function DisplayCards(data) {
   });
 }
 
-export default DisplayCards();
+export default DisplayCards;
