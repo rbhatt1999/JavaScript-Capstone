@@ -1,19 +1,19 @@
 import { modal } from "./Dom.js";
 
-function viewMeal() {
+function viewMeal(data) {
   modal.innerHTML = `
     <div class="popup-content">
         <div class ="popup-image">
             <span class ="popup-food">
-                <img src="${element.strCategoryThumb}" alt="Pizza">
+                <img src="${data.strCategoryThumb}" alt="Pizza">
             </span>
             <span class="close-window">&times;</span>
         </div>
         <div class="meal-title">
-            <h2>${element.strCategory}</h2> 
+            <h2>${data.strCategory}</h2> 
         </div>
         <div class="description">
-            <p>${element.strCategoryDescription}</p>
+            <p>${data.strCategoryDescription}</p>
         </div>
         <div class="comment-section">
             <h2 class="comment-title">Comments()</h2>

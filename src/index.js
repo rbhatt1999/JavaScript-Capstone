@@ -1,20 +1,10 @@
+import { comment, modal } from "./modules/Dom.js";
 import "./reset.css";
-import * as Elements from "./modules/Dom.js";
-import viewMeal from "./modules/Functions.js";
-import getMeal from "./modules/Api.js";
+import Api from "./modules/Api.js";
 
-getMeal(url).then((data) => viewMeal(data));
+const ApiCalls = new Api();
 
-Elements.popupBtn.addEventListener("click", () => {
-  const openModal = () => {
-    Elements.modal.style.display = "block";
-  };
-  openModal();
-});
-
-Elements.closeBtn.addEventListener("click", () => {
-  const closeModal = () => {
-    Elements.modal.style.display = "none";
-  };
-  closeModal();
+comment.addEventListener("click", () => {
+  modal.classList.toggle("hide");
+  ApiCalls.GetMealInfos(comment.id);
 });
