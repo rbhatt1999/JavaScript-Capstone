@@ -1,52 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/a11f8b435e.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/a11f8b435e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
     <title>Restaurant App</title>
-</head>
-
-<body>
+  </head>
+  <body>
     <header>
-        <nav class="nav">
-            <ul class="nav-items">
-                <li class="logo"><i class="fa-solid fa-utensils fa-2x"></i>
-                    <h1 class="logo-title">DeliciousFoody </h1>
-                </li>
-                <li class="nav-link">Categories()</li>
-            </ul>
-        </nav>
+      <nav class="nav">
+        <ul class="nav-items">
+          <li class="logo">
+            <i class="fa-solid fa-utensils fa-2x"></i>
+            <h1 class="logo-title">DeliciousFoody</h1>
+          </li>
+          <li class="nav-link">Categories()</li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="cards">
-            
-         
-
-            </div>
-            
+      <section class="popup-window">
+        <div class="popup-content">
+          <span class="popup-food">
+            <img src="./fried-pork.webp" alt="Pork" />
+          </span>
+          <span class="close-window">&times;</span>
+        </div>
+        <div class="meal-title">
+          <h2>Pork</h2>
+        </div>
+        <div class="description">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci,
+            laudantium in at magnam debitis sit ullam voluptatum? Facilis,
+            architecto! Sunt tempore atque quibusdam quis placeat at nemo
+            distinctio, tempora exercitationem.
+          </p>
+        </div>
+        <div class="comment-section">
+          <h2 class="comment-title">Comments()</h2>
+          <div class="display-comments">
+            <ul>
+              <li>REally nice</li>
+              <li>Very yummy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="add-comments">
+          <h2 class="add-comm">Add a comment</h2>
+          <form class="form">
+            <input type="text" class="name" value="Your name" />
+            <input type="text" class="insights" value="Your insights" />
+            <button type="submit" class="submit">Comment</button>
+          </form>
+        </div>
+      </section>
     </main>
     <footer>
-        <div class="footer">
-            <div class="social-links">
-                <a href="">
-                    <i class="fa fa-facebook fa-2x icon" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-twitter fa-2x icon" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-github fa-2x icon" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-envelope fa-2x icon" aria-hidden="true"></i>
-                </a>
-            </div>
-            <p class="licence">&copy;Copyrights.All rights reserved</p>
+      <div class="footer">
+        <div class="social-links">
+          <a href="">
+            <i class="fa fa-facebook fa-2x icon" aria-hidden="true"></i>
+          </a>
+          <a href="">
+            <i class="fa fa-twitter fa-2x icon" aria-hidden="true"></i>
+          </a>
+          <a href="">
+            <i class="fa fa-github fa-2x icon" aria-hidden="true"></i>
+          </a>
+          <a href="">
+            <i class="fa fa-envelope fa-2x icon" aria-hidden="true"></i>
+          </a>
         </div>
+        <p class="licence">&copy;Copyrights.All rights reserved</p>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
