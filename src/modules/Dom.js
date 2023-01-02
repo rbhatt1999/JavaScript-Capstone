@@ -1,3 +1,4 @@
+const modal = document.querySelector('.popup-container');
+const comment = document.querySelectorAll('.comment');
 const Cards = document.querySelector('.cards');
-
-export default Cards;
+export { modal, comment, Cards };
