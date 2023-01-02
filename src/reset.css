@@ -175,7 +175,7 @@ body {
   width: 90%;
   position: fixed;
   margin: 0 auto;
-  overflow: auto;
+  /* overflow: auto; */
   z-index: 1;
   top: 0;
   left: 0;
@@ -230,7 +230,7 @@ body {
 }
 .add-comm {
   text-align: center;
-  margin: 0.8rem;
+  margin: 1rem;
 }
 .form {
   width: 300px;
