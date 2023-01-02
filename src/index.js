@@ -1,6 +1,16 @@
-import './reset.css';
-import Api from './modules/Api.js';
+import "./reset.css";
+import * as Elements from "./modules/dom.js";
 
-const ApiCalls = new Api();
+Elements.popupBtn.addEventListener("click", (e) => {
+  const openModal = () => {
+    Elements.modal.style.display = "block";
+  };
+  openModal();
+});
 
-ApiCalls.GetMeals();
+Elements.closeBtn.addEventListener("click", (e) => {
+  const closeModal = () => {
+    Elements.modal.style.display = "none";
+  };
+  closeModal();
+});
