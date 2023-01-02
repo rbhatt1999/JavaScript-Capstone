@@ -175,7 +175,7 @@ body {
   width: 90%;
   position: fixed;
   margin: 0 auto;
-  /* overflow: auto; */
+  overflow: auto;
   z-index: 1;
   top: 0;
   left: 0;
@@ -208,13 +208,16 @@ body {
   display: flex;
   flex-direction: column;
 }
-.popup-food {
-  width: 300px;
-}
 .popup-food img {
-  max-width: 100%;
-  margin-left: 2rem;
+  width: 70%;
+  height: 300px;
+  margin-left: 15%;
+  border-radius: 5px;
 }
+/* .popup-food img {
+  max-width: 80%;
+  max-height: 50%;
+} */
 .meal-title {
   text-align: center;
   margin: 1rem;
