@@ -1,0 +1,28 @@
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+.nav {
+  margin-top: 1.5rem;
+}
+.nav-items {
+  display: flex;
+}
+.nav-items li {
+  list-style: none;
+  margin-left: 5%;
+}
+
+.logo {
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 3rem;
+}
+.nav-link {
+  padding-top: 3rem;
+}
