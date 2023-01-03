@@ -4,7 +4,7 @@ import { modal } from './Dom.js';
 export default class Api {
   constructor() {
     this.InvolvementApiEP = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
-    this.InvolvementAppID = 'uTgQekk1pvknjJNgid02';
+    this.InvolvementAppID = 'YrrcGavt9pgNOYlenrro';
     this.FreeMealEP = 'https://www.themealdb.com/api/json/v1/';
   }
 
@@ -23,7 +23,23 @@ export default class Api {
   GetExamples = async (item) => {
     await fetch(`${this.FreeMealEP}/1/filter.php?c=${item.strCategory}`)
       .then((response) => response.json())
-      .then((json) => DisplayPopup(item, json));
+      .then((json) => {
+        DisplayPopup(item, json);
+
+        const form = document.querySelector('.form');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const username = document.getElementById('name').value;
+          const comment = document.getElementById('comment').value;
+          const button = document.querySelector('.comment').id;
+          const newComment = {
+            username,
+            comment,
+            item_id: button,
+          };
+          this.AddComment(newComment);
+        });
+      });
   };
 
       GetStats = async () => {
@@ -138,5 +154,20 @@ export default class Api {
           });
         });
       });
+  };
+
+  AddComment = async (data) => {
+    await fetch(
+      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/comments`,
+      {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      },
+    )
+      .then((response) => response.json())
+      .then((json) => json);
   };
 }

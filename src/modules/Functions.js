@@ -27,10 +27,10 @@ function DisplayPopup(data, examples) {
                 </div>
                 <div class="popup-comments">
                     <div class="container-comments">
-                        <form >
+                        <form class="form">
                     
                     <textarea id="comment" type="text" placeholder="Comment"/></textarea>
-                    <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit">submit</button></div>
+                    <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit" id="${data.idCategory}">submit</button></div>
                         </form>
                      <hr/>
                     <div class="comment-list">
@@ -82,13 +82,19 @@ function DisplayCards(data) {
           <div class="title-container">
               <h3>${element.strCategory}</h3>
               <div class="interactions">
-              <div><i id="${element.idCategory}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> <b id="${element.idCategory}" class="likes-counter">355</b> </div>
+              <div><i id="${
+  element.idCategory
+}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> <b id="${
+  element.idCategory
+}" class="likes-counter">355</b> </div>
               </div>
               <div>
               ${element.strCategoryDescription.substr(0, 50)}...
               </div>
               
-          <button id="${element.idCategory}" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
+          <button id="${
+  element.idCategory
+}" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
           </div>
   
       </div>
