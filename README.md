@@ -32,9 +32,16 @@
 
 # 📖 JavaScript-Capstone <a name="about-project"></a>
 
-> This is the JavaScript-Capstone project with webpack & test, where you can like and comment of food items.
+**JavaScript-Capstone** is a The restaurant application majorly displays different categories of meals. The homepage shows a list of meals you can like. The popup window shows more data on the selected meal and the user can comment on it too.<br>
+The project has two user interfaces:
 
-**JavaScript-Capstone** is a...
+    - Homepage : The interface displays the following;
+        - A set of meal categories all derived from [Meals DB Api](https://www.themealdb.com/api.php)
+        - Likes interaction that displays number of likes for the meal. The user interface is derived from the[Involvement Api](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270)
+
+    - Popup Window : The interface displays;
+        - Images of the selected meal.The interface is derived from [Meal by category Api](https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood) (An example from seafood category)
+        - Comment Section. The users comment are displayed on the page courtesy of the [Involvement Api](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -49,11 +56,13 @@
     <li><a href="https://www.javascript.com/">JavaScript</a></li>
     <li><a href="https://webpack.js.org/">Webpack</a></li>
     <li><a href="https://jestjs.io/">Jest</a></li>   
-  </ul>
+  </ul> 
+</details>
+<details>
   <summary>API</summary>
   <ul>
     <li><a href="https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li>
-    <li><a href="https://www.themealdb.com/api.php">Meals DB</a></li>   
+    <li><a href="https://www.themealdb.com/api.php">Meals DB</a></li>  
   </ul>
 </details>
 
