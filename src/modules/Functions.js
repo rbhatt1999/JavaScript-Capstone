@@ -35,10 +35,7 @@ function DisplayPopup(data, examples) {
                      <hr/>
                     <div class="comment-list">
                         <ul class="comments">
-                           <li class="single-comment">
-                               <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
-                               <b class="user-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur architecto quidem molestiae deserunt vero voluptas odit asperiores nemo laborum cum laudantium eaque voluptate esse nobis voluptatem iusto, est maxime!</b>
-                           </li>             
+                                        
                         </ul>
                     </div>
                 </div>
@@ -102,8 +99,22 @@ function DisplayCards(data) {
   });
 }
 
+function DisplayComments(data) {
+  const commentSection = document.querySelector('.comments');
+  let comment = '';
+  data.forEach((item) => {
+    comment += `<li class="single-comment">
+      <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
+      <b class="user-comment">${item.comment}</b>
+      </li>`;
+  });
+  commentSection.innerHTML = comment;
+}
+
 function Counter(data) {
   ProductsCounter.innerHTML = data.products.length;
 }
 
-export { DisplayCards, DisplayPopup, Counter };
+export {
+  DisplayCards, DisplayPopup, Counter, DisplayComments,
+};
