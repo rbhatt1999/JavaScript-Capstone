@@ -75,15 +75,16 @@ function DisplayCards(data) {
   data.forEach((element) => {
     Cards.innerHTML += `
           <div class="card">
-          <div class="img-container">
-              <div class="img-hold">
+          <div>
+              <div class="card-header">
                   <div class="img">
                       <img src="${element.strCategoryThumb}">
                   </div>
-              </div>//   const LikesCounter = document.querySelectorAll('.likes-counter');
+              </div>
           </div>
+        
           <div class="title-container">
-              <h3>${element.strCategory}</h3>
+              <h3 class = 'tag'>${element.strCategory}</h3>
               <div class="interactions">
               <div></div>       <div><i id="${
   element.idCategory
@@ -91,7 +92,7 @@ function DisplayCards(data) {
   element.idCategory
 }" class="likes-counter"></b> </div>
               </div>
-              <div>
+              <div class ="meal-description">
               ${element.strCategoryDescription.substr(0, 50)}...
               </div>
               
@@ -99,7 +100,7 @@ function DisplayCards(data) {
   element.idCategory
 }" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
           </div>
-  
+ 
       </div>
           `;
   });
