@@ -37,13 +37,14 @@ export default class Api {
           const username = document.getElementById('name').value;
           const comment = document.querySelector('#comment').value;
           const button = document.querySelector('.submit').id;
-          const newComment = {
-            username,
-            comment,
-            item_id: button,
-          };
-
-          this.AddComment(newComment);
+          if (username && comment) {
+            const newComment = {
+              username,
+              comment,
+              item_id: button,
+            };
+            this.AddComment(newComment);
+          }
         });
       });
   };
@@ -210,7 +211,9 @@ export default class Api {
     )
       .then((response) => response.json())
       .then((json) => {
-        DisplayComments(json);
+        if (json.constructor === Array) {
+          DisplayComments(json);
+        }
       });
   };
 }
