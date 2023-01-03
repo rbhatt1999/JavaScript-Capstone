@@ -81,7 +81,9 @@ function DisplayCards(data) {
               <div class="interactions">
               <div><i id="${
   element.idCategory
-}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> <b id="${
+}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i id="${
+  element.idCategory
+}" class="fa-solid fa-heart fa-lg"></i> <b id="${
   element.idCategory
 }" class="likes-counter">355</b> </div>
               </div>

@@ -30,11 +30,14 @@ export default class Api {
       .then((response) => response.json())
       .then((json) => {
         DisplayPopup(item, json);
+
         this.DisplayComm(item.idCategory);
+
         const form = document.querySelector('.form');
         form.addEventListener('submit', (e) => {
           e.preventDefault();
           const username = document.getElementById('name').value;
+
           const comment = document.querySelector('#comment').value;
           const button = document.querySelector('.submit').id;
           if (username && comment) {
@@ -181,6 +184,21 @@ export default class Api {
       .then((json) => {
         DisplayCards(json.categories);
         this.GetStats();
+        const likeBtn = document.querySelectorAll('.fa-heart');
+        const likeCount = document.querySelectorAll('.likes-counter');
+        likeBtn.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            if (!btn.classList.contains('liked')) {
+              btn.classList.add('liked');
+              likeCount.forEach((count) => {
+                if (count.id === btn.id) {
+                  this.AddLike(count.id);
+                  count.innerHTML = Number(count.innerText) + 1;
+                }
+              });
+            }
+          });
+        });
         const comment = document.querySelectorAll('.comment');
         comment.forEach((item) => {
           item.addEventListener('click', () => {
@@ -215,5 +233,20 @@ export default class Api {
           DisplayComments(json);
         }
       });
+  };
+
+  AddLike = async (id) => {
+    await fetch(
+      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/likes/`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          item_id: id,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      },
+    );
   };
 }
