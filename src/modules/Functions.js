@@ -99,8 +99,20 @@ function DisplayCards(data) {
   });
 }
 
+function DisplayComments(data) {
+  const commentSection = document.querySelector(".comments");
+  let comment = "";
+  data.forEach((item) => {
+    comment += `<li class="single-comment">
+      <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
+      <b class="user-comment">${item.comment}</b>
+      </li>`;
+  });
+  commentSection.innerHTML = comment;
+}
+
 function Counter(data) {
   ProductsCounter.innerHTML = data.products.length;
 }
 
-export { DisplayCards, DisplayPopup, Counter };
+export { DisplayCards, DisplayPopup, Counter, DisplayComments };

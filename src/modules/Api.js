@@ -1,11 +1,16 @@
-import { DisplayPopup, DisplayCards, Counter } from "./Functions.js";
+import {
+  DisplayPopup,
+  DisplayCards,
+  Counter,
+  DisplayComments,
+} from "./Functions.js";
 import { modal } from "./Dom.js";
 
 export default class Api {
   constructor() {
     this.InvolvementApiEP =
       "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/";
-    this.InvolvementAppID = "YrrcGavt9pgNOYlenrro";
+    this.InvolvementAppID = "nt6MV6FCiUNpFq4MPkDA";
     this.FreeMealEP = "https://www.themealdb.com/api/json/v1/";
   }
 
@@ -26,20 +31,20 @@ export default class Api {
       .then((response) => response.json())
       .then((json) => {
         DisplayPopup(item, json);
-
+        this.DisplayComm(item.idCategory);
         const form = document.querySelector(".form");
         form.addEventListener("submit", (e) => {
           e.preventDefault();
           const username = document.getElementById("name").value;
-          const comment = document.getElementById("comment").value;
-          const button = document.querySelector(".comment").id;
+          const comment = document.querySelector("#comment").value;
+          const button = document.querySelector(".submit").id;
           const newComment = {
             username,
             comment,
             item_id: button,
           };
+
           this.AddComment(newComment);
-          this.DisplayComm(newComment.item_id);
         });
       });
   };
@@ -181,7 +186,6 @@ export default class Api {
           item.addEventListener("click", () => {
             modal.classList.toggle("hide");
             this.GetMealInfos(item.id);
-            this.DisplayComm(item.id);
           });
         });
       });
@@ -197,29 +201,17 @@ export default class Api {
           "Content-type": "application/json; charset=UTF-8",
         },
       }
-    )
-      .then((response) => response.json())
-      .then((json) => json);
-  };
-
-  GetComment = async (data) => {
-    const response = await fetch(
-      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/comments?item_id=${data}`
     );
-    return response.json();
+    this.DisplayComm(data.item_id);
   };
 
   DisplayComm = async (data) => {
-    const commDets = await this.GetComment(data);
-
-    const commentSection = document.querySelector(".comments");
-    let comment = "";
-    commDets.forEach((item) => {
-      comment += `<li class="single-comment">
-      <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
-      <b class="user-comment">${item.comment}</b>
-      </li>`;
-    });
-    commentSection.innerHTML = comment;
+    await fetch(
+      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/comments?item_id=${data}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        DisplayComments(json);
+      });
   };
 }
