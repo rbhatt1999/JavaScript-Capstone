@@ -1,4 +1,4 @@
-import { ProductsCounter, modal, Cards } from "./Dom.js";
+import { modal, Cards, ProductsCounter } from "./Dom.js";
 
 function DisplayPopup(data, examples) {
   modal.innerHTML = ` <div class="closeBtn">X</div>
@@ -32,11 +32,13 @@ function DisplayPopup(data, examples) {
                     <textarea id="comment" type="text" placeholder="Comment"/></textarea>
                     <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit" id="${data.idCategory}">submit</button></div>
                         </form>
-                     <hr/>
-                    <div class="comment-list">
                         <div class="Comment-counter">
-                        
+                        Total Comments(0)
                         </div>
+                     <hr/>
+                     
+                    <div class="comment-list">
+                        
                         <ul class="comments">
                                         
                         </ul>
@@ -114,12 +116,18 @@ function DisplayComments(data) {
       </li>`;
   });
   commentSection.innerHTML = comment;
+  CountComment(data);
+}
+
+function calculateComments(data) {
+  let msg = `Total Comments(${data.length})`;
+  return msg;
 }
 
 function CountComment(data) {
-  CommentCounter.innerHTML = data.length;
+  const CommentCounter = document.querySelector(".Comment-counter");
+  CommentCounter.innerHTML = calculateComments(data);
 }
-
 function Counter(data) {
   ProductsCounter.innerHTML = data.products.length;
 }
