@@ -90,7 +90,7 @@ function DisplayCards(data) {
   element.idCategory
 }" class="fa-solid fa-heart fa-lg"></i> <b id="${
   element.idCategory
-}" class="likes-counter">355</b> </div>
+}" class="likes-counter"></b> </div>
               </div>
               <div>
               ${element.strCategoryDescription.substr(0, 50)}...
@@ -129,10 +129,32 @@ function DisplayComments(data) {
   CountComment(data);
 }
 
+function countProducts(data) {
+  return data.length;
+}
+
 function Counter(data) {
-  ProductsCounter.innerHTML = data.products.length;
+  ProductsCounter.innerHTML = countProducts(data);
+}
+
+function CounterLikes(data) {
+  const likeCount = document.querySelectorAll('.likes-counter');
+  likeCount.forEach((item) => {
+    data.forEach((likes) => {
+      if (item.id === likes.item_id) {
+        item.innerHTML = likes.likes;
+      }
+    });
+  });
 }
 
 export {
-  DisplayCards, DisplayPopup, Counter, DisplayComments, CountComment,
+  DisplayCards,
+  DisplayPopup,
+  Counter,
+  DisplayComments,
+  CountComment,
+  CounterLikes,
+  calculateComments,
+  countProducts,
 };
