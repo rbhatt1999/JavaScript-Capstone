@@ -1,4 +1,4 @@
-import { modal, Cards, ProductsCounter } from './Dom.js';
+import { ProductsCounter, modal, Cards } from "./Dom.js";
 
 function DisplayPopup(data, examples) {
   modal.innerHTML = ` <div class="closeBtn">X</div>
@@ -32,13 +32,11 @@ function DisplayPopup(data, examples) {
                     <textarea id="comment" type="text" placeholder="Comment"/></textarea>
                     <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit" id="${data.idCategory}">submit</button></div>
                         </form>
-                        <div class="Comment-counter">
-                        Total Comments(0)
-                        </div>
                      <hr/>
-                     
                     <div class="comment-list">
+                        <div class="Comment-counter">
                         
+                        </div>
                         <ul class="comments">
                                         
                         </ul>
@@ -47,10 +45,10 @@ function DisplayPopup(data, examples) {
             </div>
         </div>
    </div>`;
-  const images = document.querySelector('.images');
+  const images = document.querySelector(".images");
   examples.meals.slice(0, 3).forEach((element) => {
-    const div = document.createElement('div');
-    div.classList.add('single-product-example');
+    const div = document.createElement("div");
+    div.classList.add("single-product-example");
     div.innerHTML = ` 
     <div class="img-popholdpop">
         <div class="imgex">
@@ -63,10 +61,10 @@ function DisplayPopup(data, examples) {
     images.appendChild(div);
   });
 
-  const closeBtn = document.querySelector('.closeBtn');
+  const closeBtn = document.querySelector(".closeBtn");
 
-  closeBtn.addEventListener('click', () => {
-    modal.classList.toggle('hide');
+  closeBtn.addEventListener("click", () => {
+    modal.classList.toggle("hide");
   });
 }
 
@@ -85,20 +83,20 @@ function DisplayCards(data) {
               <h3>${element.strCategory}</h3>
               <div class="interactions">
               <div><i id="${
-  element.idCategory
-}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i id="${
-  element.idCategory
-}" class="fa-solid fa-heart fa-lg"></i> <b id="${
-  element.idCategory
-}" class="likes-counter"></b> </div>
+                element.idCategory
+              }" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i id="${
+      element.idCategory
+    }" class="fa-solid fa-heart fa-lg"></i> <b id="${
+      element.idCategory
+    }" class="likes-counter">355</b> </div>
               </div>
               <div>
               ${element.strCategoryDescription.substr(0, 50)}...
               </div>
               
           <button id="${
-  element.idCategory
-}" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
+            element.idCategory
+          }" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
           </div>
   
       </div>
@@ -106,19 +104,9 @@ function DisplayCards(data) {
   });
 }
 
-function calculateComments(data) {
-  const msg = `Total Comments(${data.length})`;
-  return msg;
-}
-
-function CountComment(data) {
-  const CommentCounter = document.querySelector('.Comment-counter');
-  CommentCounter.innerHTML = calculateComments(data);
-}
-
 function DisplayComments(data) {
-  const commentSection = document.querySelector('.comments');
-  let comment = '';
+  const commentSection = document.querySelector(".comments");
+  let comment = "";
   data.forEach((item) => {
     comment += `<li class="single-comment">
       <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
@@ -126,28 +114,14 @@ function DisplayComments(data) {
       </li>`;
   });
   commentSection.innerHTML = comment;
-  CountComment(data);
 }
 
-function countProducts(data) {
-  return data.length;
+function CountComment(data) {
+  CommentCounter.innerHTML = data.length;
 }
 
 function Counter(data) {
-  ProductsCounter.innerHTML = countProducts(data);
+  ProductsCounter.innerHTML = data.products.length;
 }
 
-function CounterLikes(data) {
-  const likeCount = document.querySelectorAll('.likes-counter');
-  likeCount.forEach((item) => {
-    data.forEach((likes) => {
-      if (item.id === likes.item_id) {
-        item.innerHTML = likes.likes;
-      }
-    });
-  });
-}
-
-export {
-  DisplayCards, DisplayPopup, Counter, DisplayComments, CountComment, CounterLikes,
-};
+export { DisplayCards, DisplayPopup, Counter, DisplayComments, CountComment };
