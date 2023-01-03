@@ -1,6 +1,4 @@
-// import AddComentEventListener from '../index.js';
-import { modal, Cards } from "./Dom.js";
-import saveComment from "../index.js";
+import { ProductsCounter, modal, Cards } from './Dom.js';
 
 function DisplayPopup(data, examples) {
   modal.innerHTML = ` <div class="closeBtn">X</div>
@@ -46,17 +44,16 @@ function DisplayPopup(data, examples) {
                 </div>
             </div>
         </div>
-   
-   
    </div>`;
-  const images = document.querySelector(".images");
+  const images = document.querySelector('.images');
   examples.meals.slice(0, 3).forEach((element) => {
-    const div = document.createElement("div");
-    div.classList.add("single-product-example");
+    const div = document.createElement('div');
+    div.classList.add('single-product-example');
     div.innerHTML = ` 
     <div class="img-popholdpop">
         <div class="imgex">
             <img src=${element.strMealThumb}>
+
         </div>
     </div>
     <p class="title-example">${element.strMeal.substr(0, 15)}</p>
@@ -64,24 +61,10 @@ function DisplayPopup(data, examples) {
     images.appendChild(div);
   });
 
-  const closeBtn = document.querySelector(".closeBtn");
+  const closeBtn = document.querySelector('.closeBtn');
 
-  closeBtn.addEventListener("click", () => {
-    modal.classList.toggle("hide");
-  });
-
-  const form = document.querySelector(".form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const username = document.getElementById("name").value;
-    const comment = document.getElementById("comment").value;
-    const button = document.querySelector(".comment").id;
-    const newComment = {
-      username: username,
-      comment: comment,
-      item_id: button,
-    };
-    saveComment(newComment);
+  closeBtn.addEventListener('click', () => {
+    modal.classList.toggle('hide');
   });
 }
 
@@ -94,30 +77,33 @@ function DisplayCards(data) {
                   <div class="img">
                       <img src="${element.strCategoryThumb}">
                   </div>
-              </div>
+              </div>//   const LikesCounter = document.querySelectorAll('.likes-counter');
           </div>
           <div class="title-container">
               <h3>${element.strCategory}</h3>
               <div class="interactions">
               <div><i id="${
-                element.idCategory
-              }" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> <b id="${
-      element.idCategory
-    }" class="likes-counter">355</b> </div>
+  element.idCategory
+}" class="fa-solid fa-comment fa-lg"></i>  355  </div>       <div><i class="fa-solid fa-heart fa-lg"></i> <b id="${
+  element.idCategory
+}" class="likes-counter">355</b> </div>
               </div>
               <div>
               ${element.strCategoryDescription.substr(0, 50)}...
               </div>
               
           <button id="${
-            element.idCategory
-          }" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
+  element.idCategory
+}" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
           </div>
   
       </div>
           `;
   });
-  //   AddComentEventListener();
 }
 
-export { DisplayPopup, DisplayCards };
+function Counter(data) {
+  ProductsCounter.innerHTML = data.products.length;
+}
+
+export { DisplayCards, DisplayPopup, Counter };
