@@ -1,5 +1,6 @@
 // import AddComentEventListener from '../index.js';
 import { modal, Cards } from "./Dom.js";
+import saveComment from "../index.js";
 
 function DisplayPopup(data, examples) {
   modal.innerHTML = ` <div class="closeBtn">X</div>
@@ -28,16 +29,17 @@ function DisplayPopup(data, examples) {
                 </div>
                 <div class="popup-comments">
                     <div class="container-comments">
-                        <form >
+                        <form class="form">
                     
                     <textarea id="comment" type="text" placeholder="Comment"/></textarea>
-                    <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit">submit</button></div>
+                    <div class="form-header"><input id="name" type="text" placeholder="Name" /> <button class="submit" id="${data.idCategory}">submit</button></div>
                         </form>
                      <hr/>
                     <div class="comment-list">
                         <ul class="comments">
                            <li class="single-comment">
-                               <img class="user" src="${userComments}"</b>
+                               <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
+                               <b class="user-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur architecto quidem molestiae deserunt vero voluptas odit asperiores nemo laborum cum laudantium eaque voluptate esse nobis voluptatem iusto, est maxime!</b>
                            </li>             
                         </ul>
                     </div>
@@ -66,6 +68,20 @@ function DisplayPopup(data, examples) {
 
   closeBtn.addEventListener("click", () => {
     modal.classList.toggle("hide");
+  });
+
+  const form = document.querySelector(".form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("name").value;
+    const comment = document.getElementById("comment").value;
+    const button = document.querySelector(".comment").id;
+    const newComment = {
+      username: username,
+      comment: comment,
+      item_id: button,
+    };
+    saveComment(newComment);
   });
 }
 

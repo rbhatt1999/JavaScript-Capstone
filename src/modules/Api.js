@@ -7,7 +7,6 @@ export default class Api {
       "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/";
     this.InvolvementAppID = "YrrcGavt9pgNOYlenrro";
     this.FreeMealEP = "https://www.themealdb.com/api/json/v1/";
-    this.InvolvementAppComm = "vXgKvecGbONYA7rAAh7N";
   }
 
   GetMealInfos = async (id) => {
@@ -43,17 +42,20 @@ export default class Api {
       });
   };
 
-  AddComment = async (comment) => {
-    const request = await fetch(
-      `${this.InvolvementApiEP}apps/${this.InvolvementAppComm}/comments`,
+  AddComment = async (data) => {
+    await fetch(
+      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/comments`,
       {
         method: "POST",
+        body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json",
+          "Content-type": "application/json; charset=UTF-8",
         },
-        body: JSON.stringify(comment),
       }
-    );
-    return request.text();
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+      });
   };
 }
