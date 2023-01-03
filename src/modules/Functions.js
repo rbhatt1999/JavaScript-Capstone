@@ -1,4 +1,4 @@
-import { modal, Cards, ProductsCounter } from './Dom.js';
+import { modal, Cards, ProductsCounter } from "./Dom.js";
 
 function DisplayPopup(data, examples) {
   modal.innerHTML = ` <div class="closeBtn">X</div>
@@ -47,10 +47,10 @@ function DisplayPopup(data, examples) {
             </div>
         </div>
    </div>`;
-  const images = document.querySelector('.images');
+  const images = document.querySelector(".images");
   examples.meals.slice(0, 3).forEach((element) => {
-    const div = document.createElement('div');
-    div.classList.add('single-product-example');
+    const div = document.createElement("div");
+    div.classList.add("single-product-example");
     div.innerHTML = ` 
     <div class="img-popholdpop">
         <div class="imgex">
@@ -63,43 +63,44 @@ function DisplayPopup(data, examples) {
     images.appendChild(div);
   });
 
-  const closeBtn = document.querySelector('.closeBtn');
+  const closeBtn = document.querySelector(".closeBtn");
 
-  closeBtn.addEventListener('click', () => {
-    modal.classList.toggle('hide');
+  closeBtn.addEventListener("click", () => {
+    modal.classList.toggle("hide");
   });
 }
 
 function DisplayCards(data) {
-  document.querySelector('.cards').innerHTML = '';
+  document.querySelector(".cards").innerHTML = "";
   data.forEach((element) => {
     Cards.innerHTML += `
           <div class="card">
-          <div class="img-container">
-              <div class="img-hold">
+          <div>
+              <div class="card-header">
                   <div class="img">
                       <img src="${element.strCategoryThumb}">
                   </div>
-              </div>//   const LikesCounter = document.querySelectorAll('.likes-counter');
+              </div>
           </div>
+        
           <div class="title-container">
-              <h3>${element.strCategory}</h3>
+              <h3 class = 'tag'>${element.strCategory}</h3>
               <div class="interactions">
               <div></div>       <div><i id="${
-  element.idCategory
-}" class="fa-solid fa-heart fa-lg"></i> <b id="${
-  element.idCategory
-}" class="likes-counter"></b> </div>
+                element.idCategory
+              }" class="fa-solid fa-heart fa-lg"></i> <b id="${
+      element.idCategory
+    }" class="likes-counter"></b> </div>
               </div>
-              <div>
+              <div class ="meal-description">
               ${element.strCategoryDescription.substr(0, 50)}...
               </div>
               
           <button id="${
-  element.idCategory
-}" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
+            element.idCategory
+          }" class="button comment"><i class="fa-solid fa-comments"></i> Comments</button>
           </div>
-  
+ 
       </div>
           `;
   });
@@ -111,13 +112,13 @@ function calculateComments(data) {
 }
 
 function CountComment(data) {
-  const CommentCounter = document.querySelector('.Comment-counter');
+  const CommentCounter = document.querySelector(".Comment-counter");
   CommentCounter.innerHTML = calculateComments(data);
 }
 
 function DisplayComments(data) {
-  const commentSection = document.querySelector('.comments');
-  let comment = '';
+  const commentSection = document.querySelector(".comments");
+  let comment = "";
   data.forEach((item) => {
     comment += `<li class="single-comment">
       <img class="user" src="https://www.w3schools.com/howto/img_avatar.png" alt="user" >
@@ -137,7 +138,7 @@ function Counter(data) {
 }
 
 function CounterLikes(data) {
-  const likeCount = document.querySelectorAll('.likes-counter');
+  const likeCount = document.querySelectorAll(".likes-counter");
   likeCount.forEach((item) => {
     data.forEach((likes) => {
       if (item.id === likes.item_id) {
