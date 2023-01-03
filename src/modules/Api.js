@@ -39,7 +39,7 @@ export default class Api {
             item_id: button,
           };
           this.AddComment(newComment);
-          this.DisplayComm(newComment);
+          this.DisplayComm(newComment.item_id);
         });
       });
   };
@@ -181,6 +181,7 @@ export default class Api {
           item.addEventListener("click", () => {
             modal.classList.toggle("hide");
             this.GetMealInfos(item.id);
+            this.DisplayComm(item.id);
           });
         });
       });
@@ -203,14 +204,13 @@ export default class Api {
 
   GetComment = async (data) => {
     const response = await fetch(
-      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/comments?item_id=${data.item_id}`
+      `${this.InvolvementApiEP}apps/${this.InvolvementAppID}/comments?item_id=${data}`
     );
     return response.json();
   };
 
   DisplayComm = async (data) => {
     const commDets = await this.GetComment(data);
-    console.log(commDets);
 
     const commentSection = document.querySelector(".comments");
     let comment = "";
