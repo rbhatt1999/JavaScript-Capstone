@@ -17,12 +17,12 @@ describe('Comments and items counter', () => {
     expect(calculateComments(array)).toEqual('Total Comments(2)');
   });
 
-  test('Count likes',()=>{
+  test('Count likes', () => {
     document.body.innerHTML = '<div>'
       + '<b id="1" class="likes-counter">2</b>'
       + '</div>';
-    CounterLikes([{likes: 5, item_id: '1'}]);
+    CounterLikes([{ likes: 5, item_id: '1' }]);
     const item = document.querySelector('.likes-counter').innerHTML;
     expect(+item).toEqual(5);
-  })
+  });
 });
