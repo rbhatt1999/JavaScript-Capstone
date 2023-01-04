@@ -138,6 +138,7 @@ function Counter(data) {
 }
 
 function CounterLikes(data) {
+  console.log(data);
   const likeCount = document.querySelectorAll('.likes-counter');
   likeCount.forEach((item) => {
     data.forEach((likes) => {
