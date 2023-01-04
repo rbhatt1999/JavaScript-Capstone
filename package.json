@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\"></a>\r <div align=\"center\">",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --env=jsdom",
+    "test": "jest --env=jsdom",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"

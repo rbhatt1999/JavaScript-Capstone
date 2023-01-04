@@ -15,6 +15,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  -[Video Representation](#video-rep) 
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -79,6 +80,12 @@ The project has two user interfaces:
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://rbhatt1999.github.io/JavaScript-Capstone/dist)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Video Representation <a name="video-rep"></a>
+
+- [Video Representation Link](https://drive.google.com/file/d/1CHIy6JadeflqTHL7fnzZqRLDZ-NjmveH/view?usp=share_link)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
