@@ -335,7 +335,6 @@ button {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  overflow: hidden;
   width: 300px;
   transition: all 0.4s;
 }
@@ -660,5 +659,24 @@ form {
     align-self: flex-end;
     background-color: rgba(255, 255, 255, 0.45);
     border-radius: 5px;
+  }
+
+  .card {
+    width: 350px;
+  }
+
+  .card-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: unset;
+  }
+
+  .img {
+    overflow: hidden;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    gap: 24px;
   }
 }
