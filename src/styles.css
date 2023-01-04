@@ -662,17 +662,16 @@ form {
   }
 
   .card {
-    width: 350px;
+    width: 250px;
+    height: 460px;
+  }
+
+  .cards {
+    margin: 50px;
   }
 
   .card-header img {
-    width: 200px;
-    height: 200px;
-    object-fit: unset;
-  }
-
-  .img {
-    overflow: hidden;
+    object-fit: cover;
   }
 
   .nav-items {
